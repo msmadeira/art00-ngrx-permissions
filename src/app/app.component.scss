@@ -1,0 +1,15 @@
+.app-wrapper {
+  height: 100vh;
+  min-height: 320px;
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    box-shadow: 5px 5px 20px rgba(28, 46, 82, 0.15);
+
+    h3 {
+      margin: 0;
+    }
+  }
+}

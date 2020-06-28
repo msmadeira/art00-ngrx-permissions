@@ -1,0 +1,16 @@
+.root-login {
+  display: flex;
+  align-items: center;
+  padding: 32px;
+  height: calc(100vh - 55px);
+  min-height: calc(320px - 55px);
+
+  .login-card {
+    width: 400px;
+    margin: 0 auto;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
