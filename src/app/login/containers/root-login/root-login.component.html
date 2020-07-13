@@ -3,6 +3,7 @@
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
       <form [formGroup]="form">
         <mat-form-field>
@@ -15,6 +16,7 @@
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+
         <mat-form-field>
           <mat-label>Password</mat-label>
           <input matInput formControlName="password" type="password" placeholder="Password">
@@ -24,8 +26,11 @@
         </mat-form-field>
       </form>
     </mat-card-content>
+
     <mat-card-actions align="end">
-      <button mat-button>Login</button>
+      <button mat-button
+              [disabled]="!form.valid"
+              (click)="onLogin()">Login</button>
     </mat-card-actions>
   </mat-card>
 </div>

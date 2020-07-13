@@ -13,6 +13,7 @@ import { reducers } from './state/reducers';
 import { environment } from '../environments/environment';
 import { UserEffects } from './state/user.effects';
 import { LoginService } from './services/login.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { LoginService } from './services/login.service';
       logOnly: environment.production,
       name: 'Art00',
     }),
+    AppRoutingModule,
     LoginModule,
   ],
   declarations: [

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap } from 'rxjs/operators';
@@ -17,7 +18,16 @@ export class UserEffects {
     ),
   );
 
+  loginSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(userActions.loginSuccess),
+      map(() => this.router.navigateByUrl('dashboard')),
+    ),
+    { dispatch: false },
+  );
+
   constructor(private actions$: Actions,
-              private loginService: LoginService) {
+              private loginService: LoginService,
+              private router: Router) {
   }
 }
