@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardGuard } from './dashboard.guard';
 import { RootDashboardComponent } from './components/root-dashboard/root-dashboard.component';
 import { PostListComponent } from './containers/post-list/post-list.component';
-import { PostDetailsComponent } from './containers/post-details/post-details.component';
+import { PostEditComponent } from './containers/post-edit/post-edit.component';
 
 const routes: Routes = [
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'posts/:id',
-        component: PostDetailsComponent,
+        component: PostEditComponent,
       },
     ]
   },

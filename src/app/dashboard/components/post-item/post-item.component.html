@@ -2,7 +2,7 @@
   <mat-card-content>
     <div class="content-wrapper">
       <div class="title-wrapper">
-        <h3 class="mat-h3">{{ post.title }}</h3>
+        <h3 class="mat-h3" (click)="openDialog()">{{ post.title }}</h3>
       </div>
       <div class="actions">
         <button mat-raised-button

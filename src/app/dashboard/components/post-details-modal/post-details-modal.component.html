@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>{{ post.title }} (#{{ post.id }})</h1>
+<div mat-dialog-content>
+  <p>{{ post.content }}</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button (click)="dialogRef.close()">Close</button>
+</div>
