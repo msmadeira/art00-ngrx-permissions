@@ -13,8 +13,9 @@ import { LoginModule } from './login/login.module';
 import { reducers } from './state/reducers';
 import { environment } from '../environments/environment';
 import { UserEffects } from './state/user.effects';
-import { LoginService } from './services/login.service';
+import { DashboardEffects } from './dashboard/state/dashboard.effects';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     MatSliderModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, DashboardEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

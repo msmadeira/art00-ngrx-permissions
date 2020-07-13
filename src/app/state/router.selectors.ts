@@ -1,9 +1,10 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { RouterReducerState } from '@ngrx/router-store';
+import { createFeatureSelector } from '@ngrx/store';
+import * as fromRouter from '@ngrx/router-store';
 
-export const selectRouterState = createFeatureSelector('router');
+export interface State {
+  router: fromRouter.RouterReducerState;
+}
 
-export const selectPostId = createSelector(
-  selectRouterState,
-  (routerState: RouterReducerState) => routerState.state.root.data['id'],
-);
+export const selectRouter = createFeatureSelector<State, fromRouter.RouterReducerState>('router');
+
+export const { selectRouteParams } = fromRouter.getSelectors(selectRouter);

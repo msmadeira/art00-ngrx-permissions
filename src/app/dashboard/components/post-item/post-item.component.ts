@@ -28,6 +28,6 @@ export class PostItemComponent {
   }
 
   onEdit() {
-    this.router.navigateByUrl(`dashboard/posts/${this.post.id}`);
+    this.router.navigateByUrl(`dashboard/posts/${ this.post.id }`);
   }
 }

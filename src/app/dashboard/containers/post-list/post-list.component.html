@@ -1,6 +1,6 @@
 <div class="post-list-wrapper">
   <h2 class="mat-title">Posts</h2>
-  <app-post-item *ngFor="let post of [mockedPost, mockedPost]"
+  <app-post-item *ngFor="let post of (posts$ | async)"
                  [post]="post"
                  (delete)="onDelete(post.id)"></app-post-item>
 </div>

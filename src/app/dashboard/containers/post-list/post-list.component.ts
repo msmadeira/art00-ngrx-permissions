@@ -1,16 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { Post } from '../../models/post.model';
+import * as dashboardActions from '../../state/dashboard.actions';
+import * as dashboardSelectors from '../../state/dashboard.selectors';
 
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
 })
-export class PostListComponent {
+export class PostListComponent implements OnInit {
 
-  mockedPost: Post = { id: 0, title: 'hmmm', content: 'daleee' };
+  posts$: Observable<Post[]>;
+
+  constructor(private store: Store) {
+  }
+
+  ngOnInit() {
+    this.posts$ = this.store.pipe(select(dashboardSelectors.selectPosts));
+  }
 
   onDelete(postId: number) {
-    console.log('to delete:' + postId);
+    this.store.dispatch(dashboardActions.deletePost({ postId }));
   }
 }

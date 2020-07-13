@@ -12,7 +12,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Content</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput formControlName="content"></textarea>
         <mat-error *ngIf="form.controls.content.hasError('required')">
           Content is <strong>required</strong>
         </mat-error>

@@ -1,7 +1,9 @@
+import { Params } from '@angular/router';
+
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { DashboardState } from './dashboard.reducer';
-import { selectPostId } from '../../state/router.selectors';
+import * as routerSelectors from '../../state/router.selectors';
 
 export const selectDashboardState = createFeatureSelector('dashboard');
 
@@ -12,6 +14,6 @@ export const selectPosts = createSelector(
 
 export const selectPost = createSelector(
   selectDashboardState,
-  selectPostId,
-  (dashboardState: DashboardState, postId: number) => dashboardState.posts.find(post => post.id === postId),
+  routerSelectors.selectRouteParams,
+  (dashboardState: DashboardState, params: Params) => dashboardState.posts.find(post => post.id === parseInt(params.id))
 );
