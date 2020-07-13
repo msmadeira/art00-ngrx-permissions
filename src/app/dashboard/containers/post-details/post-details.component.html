@@ -1,0 +1,33 @@
+<div class="post-details-wrapper">
+  <h2 class="mat-title">Título do post</h2>
+  <div class="form-wrapper">
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="title" placeholder="Title">
+        <mat-error *ngIf="form.controls.title.hasError('required')">
+          Title is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Content</mat-label>
+        <textarea matInput></textarea>
+        <mat-error *ngIf="form.controls.content.hasError('required')">
+          Content is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div class="actions-wrapper">
+      <div class="actions">
+        <button mat-raised-button
+                color="warn"
+                (click)="onCancel()">Cancel</button>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="onSave()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

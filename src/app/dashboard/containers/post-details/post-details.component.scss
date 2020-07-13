@@ -1,0 +1,21 @@
+.post-details-wrapper {
+  .form-wrapper {
+    padding: 0 24px;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .actions-wrapper {
+    display: flex;
+
+    .actions {
+      margin-left: auto;
+
+      > *:first-child {
+        margin-right: 8px;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Post } from '../../models/post.model';
 
@@ -8,5 +9,15 @@ import { Post } from '../../models/post.model';
   styleUrls: ['./post-item.component.scss'],
 })
 export class PostItemComponent {
+
   @Input() post: Post;
+
+  @Output() delete = new EventEmitter();
+
+  constructor(private router: Router) {
+  }
+
+  onEdit() {
+    this.router.navigateByUrl(`dashboard/posts/${this.post.id}`);
+  }
 }

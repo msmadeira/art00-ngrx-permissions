@@ -1,4 +1,4 @@
-.post-item {
+.post-item-card {
   margin-bottom: 8px;
 
   .content-wrapper {
@@ -15,7 +15,7 @@
     }
 
     .actions {
-      > * {
+      > *:first-child {
         margin-right: 8px;
       }
     }
