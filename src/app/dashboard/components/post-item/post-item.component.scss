@@ -1,0 +1,23 @@
+.post-item {
+  margin-bottom: 8px;
+
+  .content-wrapper {
+    display: flex;
+
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    .actions {
+      > * {
+        margin-right: 8px;
+      }
+    }
+  }
+}
