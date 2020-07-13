@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { MatSliderModule } from '@angular/material/slider';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -24,6 +25,7 @@ import { LoginService } from './services/login.service';
     BrowserAnimationsModule,
     MatSliderModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, DashboardEffects]),
     StoreDevtoolsModule.instrument({

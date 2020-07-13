@@ -24,6 +24,10 @@ const reducer = createReducer(
     entity: user,
     loggingIn: false,
   })),
+  on(userActions.loginFailed, state => ({
+    ...state,
+    loggingIn: false,
+  })),
 );
 
 export function userReducer(state: UserState | undefined, action: Action) {

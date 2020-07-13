@@ -11,3 +11,5 @@ export const loginSuccess = createAction(
   '[API] Login Success',
   props<{ user: User }>(),
 );
+
+export const loginFailed = createAction('[API] Login Failed');

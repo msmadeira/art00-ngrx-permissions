@@ -39,6 +39,8 @@ export class LoginService {
       user = this.user;
     } else if (username === this.admin.username && password === this.admin.password) {
       user = this.admin;
+    } else {
+      throw false;
     }
 
     return of(user)

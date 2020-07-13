@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 
-import * as userActions from './user.actions';
 import { LoginService } from '../services/login.service';
+import * as userActions from './user.actions';
 
 @Injectable()
 export class UserEffects {
@@ -13,7 +15,16 @@ export class UserEffects {
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(userActions.login),
-      mergeMap(({ username, password }: { username: string; password: string }) => this.loginService.logUserIn(username, password)),
+      mergeMap(({ username, password }: { username: string; password: string }) =>
+        this.loginService.logUserIn(username, password)
+      ),
+      catchError((err, caught$) => {
+        this.snackBar.open('Invalid credentials', 'Ok', {
+          duration: 2000,
+        });
+        this.store.dispatch(userActions.loginFailed());
+        return caught$;
+      }),
       map(user => userActions.loginSuccess({ user })),
     ),
   );
@@ -27,6 +38,8 @@ export class UserEffects {
   );
 
   constructor(private actions$: Actions,
+              private snackBar: MatSnackBar,
+              private store: Store,
               private loginService: LoginService,
               private router: Router) {
   }
