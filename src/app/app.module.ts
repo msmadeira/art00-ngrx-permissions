@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
 
 import { StoreModule } from '@ngrx/store';
@@ -22,6 +23,7 @@ import { LoginService } from './services/login.service';
     BrowserModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    MatProgressSpinnerModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, DashboardEffects]),
     StoreDevtoolsModule.instrument({

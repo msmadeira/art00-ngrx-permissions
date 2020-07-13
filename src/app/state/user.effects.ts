@@ -13,7 +13,7 @@ export class UserEffects {
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(userActions.login),
-      mergeMap(() => this.loginService.logUserIn()),
+      mergeMap(({ username, password }: { username: string; password: string }) => this.loginService.logUserIn(username, password)),
       map(user => userActions.loginSuccess({ user })),
     ),
   );

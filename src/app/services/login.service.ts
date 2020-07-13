@@ -4,14 +4,42 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 import { User } from '../models/user.model';
+import { Features } from '../models/features.enum';
+import { Permission } from '../models/permissions.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
 
-  logUserIn(): Observable<User> {
-    const user = { id: 121 };
+  user: User = {
+    id: 1,
+    username: 'user@manager.com',
+    password: '123',
+    featurePermissions: [{
+      feature: Features.Posts,
+      permission: Permission.View,
+    }],
+  };
+
+  admin: User = {
+    id: 2,
+    username: 'admin@manager.com',
+    password: '123',
+    featurePermissions: [{
+      feature: Features.Posts,
+      permission: Permission.View,
+    }],
+  };
+
+  logUserIn(username: string, password: string): Observable<User> {
+    let user: User;
+
+    if (username === this.user.username && password === this.user.password) {
+      user = this.user;
+    } else if (username === this.admin.username && password === this.admin.password) {
+      user = this.admin;
+    }
 
     return of(user)
       .pipe(delay(400));

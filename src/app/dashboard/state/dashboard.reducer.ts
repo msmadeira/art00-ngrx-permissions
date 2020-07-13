@@ -6,7 +6,7 @@ import * as dashboardActions from './dashboard.actions';
 // basic post list mocking
 const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
-const mockedPosts: Post[] = [
+const posts: Post[] = [
   { id: 1, title: 'Dealing with permissions with Angular and NgRx', content: loremIpsum },
   { id: 2, title: 'How to setup a simple Angular app', content: loremIpsum },
   { id: 3, title: 'Creating a twitter bot', content: loremIpsum },
@@ -21,7 +21,7 @@ export interface DashboardState {
 }
 
 export const dashboardInitialState: DashboardState = {
-  posts: mockedPosts,
+  posts: posts,
 };
 
 const reducer = createReducer(
