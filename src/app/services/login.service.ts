@@ -28,7 +28,7 @@ export class LoginService {
     password: '123',
     featurePermissions: [{
       feature: Features.Posts,
-      permission: Permission.View,
+      permission: Permission.Admin,
     }],
   };
 
