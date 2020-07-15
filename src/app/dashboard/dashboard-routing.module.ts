@@ -5,6 +5,9 @@ import { DashboardGuard } from './dashboard.guard';
 import { RootDashboardComponent } from './components/root-dashboard/root-dashboard.component';
 import { PostListComponent } from './containers/post-list/post-list.component';
 import { PostEditComponent } from './containers/post-edit/post-edit.component';
+import { FeatureGuard } from '../permission/guards/feature.guard';
+import { Features } from '../permission/models/features.enum';
+import { Permission } from '../permission/models/permissions.enum';
 
 const routes: Routes = [
   {
@@ -23,6 +26,8 @@ const routes: Routes = [
       },
       {
         path: 'posts/:id',
+        canActivate: [FeatureGuard],
+        data: { feature: Features.Posts, permission: Permission.Admin },
         component: PostEditComponent,
       },
     ]

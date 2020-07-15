@@ -21,7 +21,7 @@ export class FeatureGuard implements CanActivate {
     return this.store.pipe(
       select(userSelectors.selectUser),
       map((user: User) => {
-        if (this.permissionService.checkPermission(user, route.data.feature, route.data.permission)) {
+        if (!!user && this.permissionService.checkPermission(user, route.data.feature, route.data.permission)) {
           return true;
         }
         return this.router.parseUrl('dashboard');

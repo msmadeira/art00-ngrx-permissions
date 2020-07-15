@@ -32,7 +32,7 @@ export class CheckPermissionsDirective implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$),
       )
       .subscribe(user => {
-        if (this.permissionService.checkPermission(user, this.appCheckPermissionsFeature, this.appCheckPermissions)) {
+        if (!!user && this.permissionService.checkPermission(user, this.appCheckPermissionsFeature, this.appCheckPermissions)) {
           this.viewContainer.createEmbeddedView(this.templateRef);
         } else {
           this.viewContainer.clear();
