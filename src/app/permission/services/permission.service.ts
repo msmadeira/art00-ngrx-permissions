@@ -1,39 +1,16 @@
-import { Injectable, OnDestroy } from '@angular/core';
-
-import { select, Store } from '@ngrx/store';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
 import { User } from '../../models/user.model';
 import { Features } from '../models/features.enum';
 import { Permission } from '../models/permissions.enum';
-import * as userSelectors from '../../state/user.selectors';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PermissionService implements OnDestroy {
+export class PermissionService {
 
-  user: User;
-
-  private onDestroy$ = new Subject<boolean>();
-
-  constructor(private store: Store) {
-    store
-      .pipe(
-        select(userSelectors.selectUser),
-        takeUntil(this.onDestroy$),
-      )
-      .subscribe(user => this.user);
-  }
-
-  ngOnDestroy() {
-    this.onDestroy$.next(true);
-    this.onDestroy$.unsubscribe();
-  }
-
-  checkPermission(feature: Features, permission: Permission): boolean {
-    const featurePermission = this.user.featurePermissions.find(f => f.feature = feature);
+  checkPermission(user: User, feature: Features, permission: Permission): boolean {
+    const featurePermission = user.featurePermissions.find(f => f.feature === feature);
 
     if (!!featurePermission) {
       switch (permission) {

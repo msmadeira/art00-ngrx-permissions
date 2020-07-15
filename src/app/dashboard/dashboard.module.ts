@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { DashboardGuard } from './dashboard.guard';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { PermissionModule } from '../permission/permission.module';
 import { PostItemComponent } from './components/post-item/post-item.component';
 import { RootDashboardComponent } from './components/root-dashboard/root-dashboard.component';
 import { PostDetailsModalComponent } from './components/post-details-modal/post-details-modal.component';
@@ -26,6 +27,7 @@ import { PostListComponent } from './containers/post-list/post-list.component';
     MatInputModule,
     MatDialogModule,
     DashboardRoutingModule,
+    PermissionModule,
   ],
   declarations: [
     RootDashboardComponent,

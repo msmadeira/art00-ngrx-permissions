@@ -28,6 +28,9 @@ const reducer = createReducer(
     ...state,
     loggingIn: false,
   })),
+  on(userActions.logout, () => ({
+    ...userInitialState,
+  })),
   on(userActions.setUser, (state, { user }) => ({
     ...state,
     entity: user,

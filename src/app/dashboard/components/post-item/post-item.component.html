@@ -4,7 +4,9 @@
       <div class="title-wrapper">
         <h3 class="mat-h3" (click)="openDialog()">{{ post.title }}</h3>
       </div>
-      <div class="actions">
+      <div class="actions"
+           *appCheckPermissions="permission.Admin; feature: features.Posts">
+
         <button mat-raised-button
                 color="primary"
                 (click)="onEdit()">Edit</button>

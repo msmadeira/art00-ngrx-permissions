@@ -12,10 +12,13 @@ import { CheckPermissionsDirective } from './directives/check-permissions.direct
   declarations: [
     CheckPermissionsDirective,
   ],
+  exports: [
+    CheckPermissionsDirective,
+  ],
   providers: [
     FeatureGuard,
     PermissionService,
-  ]
+  ],
 })
 export class PermissionModule {
 }

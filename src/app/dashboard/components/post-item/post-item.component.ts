@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { Post } from '../../models/post.model';
 import { PostDetailsModalComponent } from '../post-details-modal/post-details-modal.component';
+import { Features } from '../../../permission/models/features.enum';
+import { Permission } from '../../../permission/models/permissions.enum';
 
 @Component({
   selector: 'app-post-item',
@@ -15,6 +17,9 @@ export class PostItemComponent {
   @Input() post: Post;
 
   @Output() delete = new EventEmitter();
+
+  features = Features;
+  permission = Permission;
 
   constructor(private router: Router,
               private dialog: MatDialog) {
