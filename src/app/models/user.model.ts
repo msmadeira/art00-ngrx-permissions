@@ -1,4 +1,4 @@
-import { FeaturePermission } from './feature-permission.model';
+import { FeaturePermission } from '../permission/models/feature-permission.model';
 
 export class User {
   id: number;

@@ -5,8 +5,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { User } from '../../models/user.model';
-import { Features } from '../../models/features.enum';
-import { Permission } from '../../models/permissions.enum';
+import { Features } from '../models/features.enum';
+import { Permission } from '../models/permissions.enum';
 import * as userSelectors from '../../state/user.selectors';
 
 @Injectable({

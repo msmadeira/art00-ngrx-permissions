@@ -4,8 +4,8 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 import { User } from '../models/user.model';
-import { Features } from '../models/features.enum';
-import { Permission } from '../models/permissions.enum';
+import { Features } from '../permission/models/features.enum';
+import { Permission } from '../permission/models/permissions.enum';
 
 @Injectable({
   providedIn: 'root',
