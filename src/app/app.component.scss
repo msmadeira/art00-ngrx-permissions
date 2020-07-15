@@ -28,21 +28,27 @@
       margin: 0 24px 0 0;
     }
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
+    .nav-bar-options {
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
 
-      li {
-        color: #3f51b5;
-        cursor: pointer;
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
 
-        &:hover {
-          font-weight: 500;
-        }
+        li {
+          color: #3f51b5;
+          cursor: pointer;
 
-        &:focus {
-          outline: none;
+          &:hover {
+            font-weight: 500;
+          }
+
+          &:focus {
+            outline: none;
+          }
         }
       }
     }

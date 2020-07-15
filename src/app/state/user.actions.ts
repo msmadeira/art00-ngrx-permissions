@@ -13,3 +13,10 @@ export const loginSuccess = createAction(
 );
 
 export const loginFailed = createAction('[API] Login Failed');
+
+export const logout = createAction('[Dashboard] Logout');
+
+export const setUser = createAction(
+  '[Dashboard] Set User',
+  props<{ user: User }>(),
+);

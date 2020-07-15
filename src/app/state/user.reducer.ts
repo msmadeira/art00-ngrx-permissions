@@ -28,6 +28,10 @@ const reducer = createReducer(
     ...state,
     loggingIn: false,
   })),
+  on(userActions.setUser, (state, { user }) => ({
+    ...state,
+    entity: user,
+  })),
 );
 
 export function userReducer(state: UserState | undefined, action: Action) {

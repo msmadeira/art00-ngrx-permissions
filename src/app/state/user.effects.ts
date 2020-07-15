@@ -5,8 +5,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
+import { CookieService } from 'ngx-cookie-service';
 
 import { LoginService } from '../services/login.service';
+import { User } from '../models/user.model';
 import * as userActions from './user.actions';
 
 @Injectable()
@@ -32,7 +34,31 @@ export class UserEffects {
   loginSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(userActions.loginSuccess),
-      map(() => this.router.navigateByUrl('dashboard')),
+      map(({ user }: { user: User }) => {
+        this.cookieService.set('user', JSON.stringify(user), null, '/');
+        this.router.navigateByUrl('dashboard');
+      }),
+    ),
+    { dispatch: false },
+  );
+
+  logout$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(userActions.logout),
+      map(() => {
+        this.cookieService.delete('user', '/');
+        this.router.navigateByUrl('login');
+      }),
+    ),
+    { dispatch: false },
+  );
+
+  setUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(userActions.setUser),
+      map(({ user }: { user: User }) => {
+        this.cookieService.set('user', JSON.stringify(user), null, '/');
+      }),
     ),
     { dispatch: false },
   );
@@ -41,6 +67,7 @@ export class UserEffects {
               private snackBar: MatSnackBar,
               private store: Store,
               private loginService: LoginService,
+              private cookieService: CookieService,
               private router: Router) {
   }
 }

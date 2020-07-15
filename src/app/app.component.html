@@ -6,11 +6,19 @@
   <div class="nav-bar">
     <h3>Website Manager</h3>
 
-    <ul>
-      <li routerLink="/dashboard/posts">
-        Posts
-      </li>
-    </ul>
+    <div class="nav-bar-options" *ngIf="!!(user$ | async)">
+      <ul>
+        <li routerLink="/dashboard/posts">
+          Posts
+        </li>
+      </ul>
+
+      <ul>
+        <li (click)="onLogout()">
+          Logout
+        </li>
+      </ul>
+    </div>
   </div>
 
   <router-outlet></router-outlet>

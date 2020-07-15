@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
@@ -42,6 +43,7 @@ import { LoginService } from './services/login.service';
   ],
   providers: [
     LoginService,
+    CookieService,
   ],
   bootstrap: [
     AppComponent,
